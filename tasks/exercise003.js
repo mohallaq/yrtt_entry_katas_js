@@ -21,10 +21,19 @@
 // Explanation:
 // The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.
 
-function rowWeights(array){
-    // Your code here!
+function rowWeights(array) {
+  // Your code here!
+  result = [];
+  let team1Weight = 0;
+  let team2Weight = 0;
+  for (let x = 0; x < array.length; x++) {
+    x % 2 === 0 ? (team1Weight += array[x]) : (team2Weight += array[x]);
+  }
+  result.push(team1Weight);
+  result.push(team2Weight);
+  return result;
 }
 
 module.exports = {
-    rowWeights
+  rowWeights,
 };
