@@ -23,11 +23,12 @@
 
 function rowWeights(array) {
   // Your code here!
-  result = [];
+  result = []; // the array will hold 2 values of teams weights addition result
   let team1Weight = 0;
   let team2Weight = 0;
   for (let x = 0; x < array.length; x++) {
-    x % 2 === 0 ? (team1Weight += array[x]) : (team2Weight += array[x]);
+    // Check if even index then weight belongs to team 1 otherwise weight belongs to team 2
+    x % 2 === 0 ? (team1Weight += array[x]) : (team2Weight += array[x]); // Check if the index reminder is 0 then
   }
   result.push(team1Weight);
   result.push(team2Weight);

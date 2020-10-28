@@ -8,24 +8,28 @@
 function singles(arr) {
   if (arr === undefined) throw new Error("array is required");
   // Your code here!
-  let found;
-  result = 0;
-  let notRepeatedValues = [];
+  let repeatedTwice; // will be set to 1 if the item ocurred twice and
+  result = 0; // the addition result of non repeated numbers
+  let notRepeatedValues = []; // will hold an array of the 2 non-repeated values
+
+  //external loop
   for (let x = 0; x < arr.length; x++) {
-    //external loop
-    found = 0;
+    repeatedTwice = 0; //initia the variable in the external loop
+    //internal loop
     for (let i = 0; i < arr.length; i++) {
-      //internal loop
       if (arr[x] === arr[i] && x != i) {
-        found = 1;
+        // check if repeated item then will skip the internal loop the continue searching next item in the external loop
+        repeatedTwice = 1;
         continue;
       }
     }
-    if (found === 0) {
+    if (repeatedTwice === 0) {
+      // Building up the array of non-repeated items
       notRepeatedValues.push(arr[x]);
     }
   }
 
+  // when empty array then return 0 otherwise return the sum of the non-repeated values
   result =
     notRepeatedValues.length > 0
       ? notRepeatedValues.reduce((acc, val) => acc + val, 0)

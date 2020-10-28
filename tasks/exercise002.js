@@ -4,6 +4,9 @@
 
 function past(h, m, s) {
   // Your code here!
+  // 1 second=1000 milliseconds
+  // 1 minute=60 seconds ,
+  // 1 hour =3600 second
   return (h * 3600 + m * 60 + s) * 1000;
 }
 
