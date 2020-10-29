@@ -22,6 +22,8 @@ function pigLatin(str) {
     let temp = word;
     let modifiedWord;
     const punctuationPosition = getPunctuationPosition(word);
+
+    // check if the word contain punctuation {punctuationPosition != -1} and process the word accordingly./
     if (punctuationPosition === -1) {
       modifiedWord = temp.slice(1) + word.substring(0, 1) + "ay";
     } else {
