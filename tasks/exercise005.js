@@ -20,23 +20,19 @@
 // wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
 
 function mexicanWave(str) {
-  // Your code here!
-  const space = " ";
-  const strArray = str.split(" ").filter((x) => x != "");
-  const orgianl = str.slice();
-  let modifiedWord;
-  let modifiedArray = [];
-  if (strArray[0] != undefined) {
-    modifiedArray = strArray[0].split("").map((x, i) => {
-      modifiedWord =
-        orgianl.substring(i, i - orgianl.length) +
-        x.toUpperCase() +
-        orgianl.substring(i + 1, orgianl.length);
-      return modifiedWord;
-    });
-    console.log(modifiedArray);
-    return modifiedArray;
-  } else return [];
+  str = str.toLowerCase(); // make sure that all letter are lower (which means all spectators are seated) before the mexicanWave .
+  let modifiedWordsArray = []; // initialise the array which will be returned from the function.
+  for (let i = 0; i < str.length; i++) {
+    // loop through each character in str and let the current character stand up " Capital letter"
+    if (str.substring(i, i + 1) === " ") continue; // skip the loop when the current seat is empty , or white space
+    modifiedWordsArray.push(
+      str.substring(i, i - str.length) +
+        str.substring(i, i + 1).toUpperCase() +
+        str.substring(i + 1, str.length)
+    );
+  }
+
+  return modifiedWordsArray;
 }
 
 module.exports = {
